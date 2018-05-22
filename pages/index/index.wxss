@@ -1,0 +1,39 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+.air-block{
+    clear: both;
+    margin:20rpx 0;
+}
+.city{
+    width:33%;
+    display:inline-block;
+    font-size:26rpx;
+    line-height:2;
+
+}
+.airport{
+    padding:0 50rpx;
+}
+.nums{
+    font-size:30rpx;
+    font-weight:800;
+
+}
+.usermotto {
+  margin-top: 200px;
+}

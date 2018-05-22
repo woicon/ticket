@@ -1,0 +1,16 @@
+<!--pages/air/air.wxml-->
+<view class='air'>
+    <view class='air-form'>
+        <view>
+
+            <input placeholder='出发'></input>
+        </view>
+        <view>
+            <input placeholder='到达'></input>
+        </view>
+        <view class='ico icon-toggle-line'>换</view>
+        <view>
+            <button>搜索</button>
+        </view>
+    </view>
+</view>

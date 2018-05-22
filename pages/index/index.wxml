@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<view class="container">
+    <view style="padding:20rpx 40rpx;">EXTjson</view>
+    <view wx:for="{{ext}}" style="padding:20rpx 40rpx;">
+        <view style="font-size:24rpx;">{{index}}::{{item}}</view>
+    </view>
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">GET PhoneNum</button>
+<view class='airport'>
+  <view wx:for="{{air}}" wx:key="air" class='air-block'>
+            <view class='nums'>{{index}}</view>
+            <view>
+            <view class='city' wx:for="{{item}}" wx:for-item="node" wx:key="nodes">{{node[2]}}</view>
+            </view>
+  </view>
+  </view>
+</view>

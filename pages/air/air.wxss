@@ -1,0 +1,7 @@
+.air{
+    padding:40rpx;
+}
+.air-form input{
+    border-bottom:1px solid #ccc;
+    padding:30rpx 0;
+}
