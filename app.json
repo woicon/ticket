@@ -2,7 +2,9 @@
   "pages":[
     "pages/index/index",
     "pages/air/air",
-    "pages/train/train"
+    "pages/train/train",
+    "pages/airCity/airCity",
+    "pages/member/member"
   ],
   "window":{
     "backgroundTextStyle":"light",

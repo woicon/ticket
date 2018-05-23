@@ -1,7 +1,34 @@
 .air{
     padding:40rpx;
 }
-.air-form input{
+.air-input{
     border-bottom:1px solid #ccc;
     padding:30rpx 0;
+
+}
+.air-inuts{
+    width:100%;
+}
+.air-local{
+    position:relative;
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.air-date{
+    padding:20rpx 0;
+}
+.date-title{
+    font-size:24rpx;
+
+}
+.toggle-local{
+    width:50rpx;
+    height:50rpx;
+    background:#333;
+    color:#fff;
+    font-size:24rpx;
+}
+.border-no{
+    border:none;
 }

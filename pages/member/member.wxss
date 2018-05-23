@@ -1,0 +1,25 @@
+.auth{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    padding:0 40rpx;
+    position:fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:20%;
+}
+.auth-txt{
+    margin:0 10%;
+    font-size:28rpx;
+    margin-bottom:40rpx;
+    color:#555;
+    line-height:1.6;
+    text-align:center;
+}
+.user-img image{
+    width:140rpx;
+    height:140rpx;
+    border-radius:90rpx;
+}

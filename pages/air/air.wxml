@@ -1,14 +1,18 @@
 <!--pages/air/air.wxml-->
 <view class='air'>
     <view class='air-form'>
-        <view>
+        <view class='air-local'>
+            <view class='air-inuts'>
+                <input class='air-input' placeholder='出发' bindtap='toCity' value='{{dpt}}'></input>
+                <input placeholder='到达' class='air-input border-no' bindtap='toCity' value='{{ept}}'></input>
+            </view>
+            <view class='toggle-local f-c ico icon-toggle-line' bindtap='toggleAir'>换</view>
+        </view>
+        <view class='air-date'>
+            <view class='date-title'> 出发日期 </view>
+            <view>2018-05-22</view>
+        </view>
 
-            <input placeholder='出发'></input>
-        </view>
-        <view>
-            <input placeholder='到达'></input>
-        </view>
-        <view class='ico icon-toggle-line'>换</view>
         <view>
             <button>搜索</button>
         </view>

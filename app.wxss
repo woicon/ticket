@@ -1,4 +1,15 @@
-/**app.wxss**/
-.container {
-
-} 
+page{
+    color:#444;
+    box-sizing:border-box;
+}
+input{
+    color:#444;
+}
+.f-c{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+}
+.f-m{
+    display: flex;
+}

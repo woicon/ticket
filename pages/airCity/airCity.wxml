@@ -1,0 +1,26 @@
+<view class='search'>
+    <view>
+        <input placeholder='搜索' bindinput='cityInput' value='{{selectTxt}}'></input>
+    </view>
+</view>
+<view class='letter' bindtap='touchLetter'>
+    <view class='letter-num {{currLetter == index?"active":""}}' data-index="{{index}}" data-id='{{item}}' hover-class='letter-touch' bindtouchmove='touchLetter' bindtouchend='touchLetter' wx:for="{{cityLetter}}" wx:key="letter">
+        {{item == 'domesticHot' ? '#':item}}
+    </view>
+</view>
+<scroll-view scroll-y class='city-scroll' scroll-top="{{cityScroll}}" scroll-with-animation="true" scroll-into-view="{{scrollLetter}}" bindscroll="cityScrolling">
+    <view class='city-list' wx:if="{{cityFuzzy.length == 0}}">
+        <view wx:for="{{city}}" wx:key="citys">
+            <view class='city-letter' id="{{index}}">{{index}}</view>
+            <view class='city-item' wx:for="{{item}}" wx:key="subCity" wx:for-item="i" wx:for-index="n">
+                {{i[2]}}
+            </view>
+        </view>
+    </view>
+    <view class='city-fuzzy' wx:else>
+        <view wx:for="{{cityFuzzy}}" wx:key="fuzzy">
+            <view>{{item[2]}}</view>
+            <view>{{item[0]}}({{item[4]}})</view>
+        </view>
+    </view>
+</scroll-view>

@@ -1,27 +1,31 @@
 // pages/air/air.js
+const api = require('../../api/api.js')
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
-
+        dpt: "北京",
+        ept: "上海"
     },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
+    toggleAir:function(){
+        this.setData({
+            dpt:this.data.ept,
+            ept: this.data.dpt
+        })
+    },
     onLoad: function (options) {
         //获取城市二字码
         api.getAirCity()
             .then(res => {
                 console.log(res)
+                this.setData({
+                    city: res.dataList
+                })
             })
     },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
+    toCity: function () {
+        wx.navigateTo({
+            url: '/pages/airCity/airCity',
+        })
+    },
     onReady: function () {
 
     },

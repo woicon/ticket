@@ -1,7 +1,7 @@
 var md5 = require('../libs/md5.min.js')
 var sign = require('../libs/getSign.js')
 const API = 'http://www.51bib.com/wxapp/wxappbusiness.ashx'
-function ajax(url, parmas) {
+function ajax(url, parmas, ajaxType) {
     try{
         let ext = wx.getStorageSync("ext")
         // if (parmas.sign){
@@ -17,6 +17,7 @@ function ajax(url, parmas) {
         return new Promise((res, rej) => {
             wx.request({
                 url: API,
+                method:ajaxType || 'GET',
                 data: signParmas,
                 success: data => {
                     res(data.data)
@@ -39,11 +40,12 @@ const api = [
     "getTrainCity",     //获取火车票三字码
     "getAuthInfo",      //微信 登录凭证校验
     "airSearch",        //机票查询
+    "wxencryptedData",  //微信敏感数据解密
 ]
 let apiList = arr => {
     let api = {}
     let s = arr.map(i => {
-        api[i] = parmas => ajax(i, parmas)
+        api[i] = (parmas, method) => ajax(i, parmas, method)
     })
     return api
 }

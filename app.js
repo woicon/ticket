@@ -29,6 +29,7 @@ App({
                 api.getAuthInfo(parmas)
                 .then(res=>{
                     console.log(res)
+                    wx.setStorageSync("authInfo", res.dataList)
                 })
             }
         })

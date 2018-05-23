@@ -1,19 +1,5 @@
 var md5 = require('../libs/md5.min.js')
-//对象排序
-function sortObj(obj) {
-    var arr = []
-    for (let i in obj) {
-        arr.push([i, obj[i]])
-    };
-    arr.sort()
-    console.log(arr)
-    var len = arr.length,
-        obj = {}
-    for (let i = 0; i < len; i++) {
-        obj[arr[i][0]] = arr[i][1];
-    }
-    return obj
-}
+var base = require('../utils/util.js')
 
 //转URL参数
 function parseParam(obj, encode) {
@@ -49,15 +35,15 @@ function parseParam(obj, encode) {
 function getSign(parmas, key) {
     //let newParmas = parmas
     delete parmas.sign
-    let storeParmas = sortObj(parmas)
+    let storeParmas = base.sortObj(parmas)
     let _parmas = parseParam(storeParmas) //url
-    console.log("排序前:::", parmas)
-    console.log("排序后:::", storeParmas)
+    // console.log("排序前:::", parmas)
+    // console.log("排序后:::", storeParmas)
     const sign = md5(_parmas)
-    console.log("MD5:::", sign)
+    // console.log("MD5:::", sign)
     const MD5 = sign.toUpperCase()
     parmas.sign = MD5
-    console.log("混淆后的MD5::::", parmas.sign)
+    // console.log("混淆后的MD5::::", parmas.sign)
     return parmas
 }
 
