@@ -63,3 +63,10 @@ page{
 .city-fuzzy{
     margin:0 40rpx;
 }
+.city-fuzzy >view{
+    padding:20rpx 0;
+}
+.fuzzy-code{
+    font-size:26rpx;
+    color:#777;
+}

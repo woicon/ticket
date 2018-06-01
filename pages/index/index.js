@@ -10,7 +10,7 @@ Page({
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo')
     },
-    getPhoneNumber:function(e){
+    getPhoneNumber: function (e) {
         console.log(e)
     },
     //事件处理函数
@@ -20,10 +20,10 @@ Page({
         })
     },
     onShow: function () {
-       
+
     },
     onLoad: function () {
-
+        app.getUserIsReg()
     },
     getUserInfo: function (e) {
 

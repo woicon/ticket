@@ -1,7 +1,7 @@
 var md5 = require('../libs/md5.min.js')
 var sign = require('../libs/getSign.js')
 const API = 'http://www.51bib.com/wxapp/wxappbusiness.ashx'
-function ajax(url, parmas, ajaxType) {
+function ajax(url, parmas, ajaxType, headers) {
     try{
         let ext = wx.getStorageSync("ext")
         // if (parmas.sign){
@@ -19,6 +19,9 @@ function ajax(url, parmas, ajaxType) {
                 url: API,
                 method:ajaxType || 'GET',
                 data: signParmas,
+                header:{
+                    'content-type': headers || 'application/json'  // 默认值
+                },
                 success: data => {
                     res(data.data)
                 },
@@ -45,9 +48,11 @@ const api = [
 let apiList = arr => {
     let api = {}
     let s = arr.map(i => {
-        api[i] = (parmas, method) => ajax(i, parmas, method)
+        api[i] = (parmas, method, header) => ajax(i, parmas, method, header)
     })
     return api
 }
 const allApi = apiList(api)
+
+console.log(allApi.airSearch)
 module.exports = allApi

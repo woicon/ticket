@@ -4,6 +4,7 @@
     "pages/air/air",
     "pages/train/train",
     "pages/airCity/airCity",
+    "pages/reg/reg",
     "pages/member/member"
   ],
   "window":{

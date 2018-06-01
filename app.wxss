@@ -13,3 +13,14 @@ input{
 .f-m{
     display: flex;
 }
+
+.button{
+    background:tomato;
+    color:#fff;
+    margin-top:40rpx;
+}
+
+.price{
+    color:tomato;
+    font-weight: 800;
+}

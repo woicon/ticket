@@ -83,6 +83,9 @@ Page({
             currLetter: e.target.dataset.index
         })
     },
+    selectCity:function(){
+        
+    },
     cityScrolling:function(e){
         var query = wx.createSelectorQuery()
         query.selectAll('.city-letter').boundingClientRect()

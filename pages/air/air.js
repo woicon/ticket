@@ -3,28 +3,84 @@ const api = require('../../api/api.js')
 Page({
     data: {
         dpt: "北京",
-        ept: "上海"
+        ept: "上海",
+        searchData: {
+            date: '2018-06-12',
+            clientId: "/lItIoqTVIQ=",//wx.getStorageSync("clientId"),
+            dstAirportCode: 'PEK', //起飞
+            orgAirportCode: 'CTU' //到达
+        },
+        pageLoading:false
     },
-    toggleAir:function(){
+    toggleAir: function () {
         this.setData({
-            dpt:this.data.ept,
+            dpt: this.data.ept,
             ept: this.data.dpt
         })
     },
     onLoad: function (options) {
-        //获取城市二字码
-        api.getAirCity()
-            .then(res => {
-                console.log(res)
-                this.setData({
-                    city: res.dataList
-                })
+
+        try {
+            let air = wx.getStorageSync("air")
+            
+            for (let i in air) {
+                console.log(air[i])
+                let n = air[i]
+                for (let t in n) {
+                    if (t == 'dptime' || t == 'eptime') {
+                        let s = "fdf"
+                        let ars = n[t].split(" ")
+                        console.log(ars)
+                        n[t] = ars[1]
+                    }
+                }
+            }
+
+            this.setData({
+                air: air,
+                pageLoading: false
             })
+
+        }catch (error){
+
+        }
+
+
     },
     toCity: function () {
         wx.navigateTo({
             url: '/pages/airCity/airCity',
         })
+    },
+    airSearch: function (e) {
+        const parmas = this.data.searchData
+        this.setData({
+            pageLoading:true
+        })
+        api.airSearch(parmas)
+            .then(res => {
+                console.log(res)
+                let air = res.dataList
+                
+                for (let i in air) {
+                    console.log(air[i])
+                    let n = air[i]
+                    for (let t in n) {
+                        if (t == 'dptime' || t == 'eptime') {
+                            let s = "fdf"
+                            let ars = n[t].split(" ")
+                            console.log(ars)
+                            n[t] = ars[1]
+                        }
+                    }
+                }
+                console.log(air)
+                this.setData({
+                    air: air,
+                    pageLoading:false
+                })
+                wx.setStorageSync('air', air)
+            })
     },
     onReady: function () {
 

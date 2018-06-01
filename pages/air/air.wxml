@@ -1,5 +1,37 @@
 <!--pages/air/air.wxml-->
-<view class='air'>
+<view wx:if="{{pageLoading}}">
+    <Loading></Loading>
+</view>
+<view wx:elif="{{air}}">
+    <view class='a-item' wx:for="{{air}}" wx:key="airList">
+
+        <view class='a-info'>
+            <view>
+                <view class='a-airport'>
+                    <view class='a-dpt'>
+                        <view class='a-time'>{{item.dptime}}</view>
+                        <view class='a-area a-grey'>{{item.dpt_air_name}}</view>
+                    </view>
+                    <view class='ico icon-line'>1</view>
+                    <view class='a-ept'>
+                        <view class='a-time'>{{item.eptime}}</view>
+                        <view class='a-area a-grey'>{{item.ept_air_name}}</view>
+                    </view>
+                </view>
+                <view>
+                    <view class='a-port'>
+                        <image class='a-img' src='http://pic.c-ctrip.com/flight_intl/airline_logo/40x35/{{item.alcode}}.png'></image>
+                        {{item.airlineName}} {{item.flightno}}</view>
+                </view>
+            </view>
+            <view class='a-price'>
+                <view class='price'>¥{{item.price}}</view>
+                <view class='a-grey a-tag'>{{item.produceName}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class='air' wx:else>
     <view class='air-form'>
         <view class='air-local'>
             <view class='air-inuts'>
@@ -12,9 +44,6 @@
             <view class='date-title'> 出发日期 </view>
             <view>2018-05-22</view>
         </view>
-
-        <view>
-            <button>搜索</button>
-        </view>
+        <button class='button' bindtap='airSearch'>搜索</button>
     </view>
 </view>
