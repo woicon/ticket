@@ -5,7 +5,7 @@ page{
     background:#fafafa;
 }
 .a-item{
-    padding:30rpx;
+    padding:28rpx;
     background:#fff;
     margin:30rpx;
     box-shadow:0 4px 20px rgba(100, 100, 100, .1);
@@ -21,9 +21,12 @@ page{
 
     align-items:flex-end;
 }
+.a-price .price{
+    font-size:40rpx;
+}
 .a-img{
-    width:36rpx;
-    height:36rpx;
+    width:32rpx;
+    height:32rpx;
     margin-right:10rpx;
 }
 .a-tag{
@@ -40,8 +43,14 @@ page{
 .a-airport{
     display:flex;
     justify-content:space-between;
-    align-items:center;
-    width:470rpx;
+    align-items:flex-start;
+    width:500rpx;
+}
+.a-airport .ico{
+    width:90rpx;
+    border-bottom:2px solid #ddd;
+    margin-top:20rpx;
+    
 }
 .a-port{
     font-size:26rpx;
@@ -54,6 +63,7 @@ page{
 }
 .a-time{
     font-size:40rpx;
+    font-weight:800;
 }
 .a-area{
     font-size:26rpx;

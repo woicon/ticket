@@ -4,24 +4,23 @@
 </view>
 <view wx:elif="{{air}}">
     <view class='a-item' wx:for="{{air}}" wx:key="airList">
-
         <view class='a-info'>
             <view>
                 <view class='a-airport'>
                     <view class='a-dpt'>
                         <view class='a-time'>{{item.dptime}}</view>
-                        <view class='a-area a-grey'>{{item.dpt_air_name}}</view>
+                        <view class='a-area a-grey'>{{item.dpt_air_name}} {{item.fly_list_detail.terminal_start}}</view>
                     </view>
-                    <view class='ico icon-line'>1</view>
+                    <view class='ico icon-line'></view>
                     <view class='a-ept'>
                         <view class='a-time'>{{item.eptime}}</view>
-                        <view class='a-area a-grey'>{{item.ept_air_name}}</view>
+                        <view class='a-area a-grey'>{{item.ept_air_name}}  {{item.fly_list_detail.terminal_end}}</view>
                     </view>
                 </view>
                 <view>
                     <view class='a-port'>
                         <image class='a-img' src='http://pic.c-ctrip.com/flight_intl/airline_logo/40x35/{{item.alcode}}.png'></image>
-                        {{item.airlineName}} {{item.flightno}}</view>
+                        {{item.airlineName}} {{item.flightno}} | {{item.airlineplan}}</view>
                 </view>
             </view>
             <view class='a-price'>

@@ -18,11 +18,11 @@ Page({
             ept: this.data.dpt
         })
     },
-    onLoad: function (options) {
+    onShow: function (options) {
 
         try {
             let air = wx.getStorageSync("air")
-            
+
             for (let i in air) {
                 console.log(air[i])
                 let n = air[i]
@@ -57,41 +57,39 @@ Page({
         this.setData({
             pageLoading:true
         })
+        wx.showLoading({
+            title: 'loading',
+        })
         api.airSearch(parmas)
             .then(res => {
                 console.log(res)
                 let air = res.dataList
                 
-                for (let i in air) {
-                    console.log(air[i])
-                    let n = air[i]
-                    for (let t in n) {
-                        if (t == 'dptime' || t == 'eptime') {
-                            let s = "fdf"
-                            let ars = n[t].split(" ")
-                            console.log(ars)
-                            n[t] = ars[1]
-                        }
-                    }
-                }
-                console.log(air)
+                // for (let i in air) {
+                //     console.log(air[i])
+                //     let n = air[i]
+                //     for (let t in n) {
+                //         if (t == 'dptime' || t == 'eptime') {
+                //             let s = "fdf"
+                //             let ars = n[t].split(" ")
+                //             console.log(ars)
+                //             n[t] = ars[1]
+                //         }
+                //     }
+                // }
+                // console.log(air)
                 this.setData({
-                    air: air,
+                    //air: air,
                     pageLoading:false
                 })
                 wx.setStorageSync('air', air)
+                wx.hideLoading()
             })
     },
     onReady: function () {
 
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
 
     /**
      * 生命周期函数--监听页面隐藏
