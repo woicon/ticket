@@ -1,48 +1,95 @@
 <!--pages/air/air.wxml-->
-<view wx:if="{{pageLoading}}">
-    <Loading></Loading>
-</view>
-<view wx:elif="{{air}}">
-    <view class='a-item' wx:for="{{air}}" wx:key="airList">
-        <view class='a-info'>
-            <view>
-                <view class='a-airport'>
-                    <view class='a-dpt'>
-                        <view class='a-time'>{{item.dptime}}</view>
-                        <view class='a-area a-grey'>{{item.dpt_air_name}} {{item.fly_list_detail.terminal_start}}</view>
+<block wx:if="{{pageLoading}}">
+    <view class='f-c loadingpage'>
+        <!-- <view class='air-loading'>
+            <view></view>
+        </view> -->
+    </view>
+</block>
+
+<block wx:elif="{{air}}">
+    <view class='date-bar'>
+        <view class='day day-prev'> 前一天</view>
+        <view class='date-bar-time'> {{searchData.date}}</view>
+         <view class='day day-next'> 后一天</view>
+    </view>
+    <scroll-view class='scroll-air' scroll-y>
+        <view class='air-list'>
+            <view class='a-item' wx:for="{{air}}" wx:key="airList" bindtap='goDetail' data-item="{{item}}" data-index="{{index}}">
+                <view class='a-info'>
+                    <view class='a-airport'>
+                        <view class='a-dpt'>
+                            <view class='a-time'>{{item.dptime}}</view>
+                            <view class='a-area a-grey'>{{item.dpt_air_name}} {{item.fly_list_detail.terminal_start}}</view>
+                        </view>
+                        <view class='icon icon-lines'></view>
+                        <view class='a-ept'>
+                            <view class='a-time'>{{item.eptime}}</view>
+                            <view class='a-area a-grey'>{{item.ept_air_name}} {{item.fly_list_detail.terminal_end}}</view>
+                        </view>
                     </view>
-                    <view class='ico icon-line'></view>
-                    <view class='a-ept'>
-                        <view class='a-time'>{{item.eptime}}</view>
-                        <view class='a-area a-grey'>{{item.ept_air_name}}  {{item.fly_list_detail.terminal_end}}</view>
+                    <view class='a-price'>
+                        <view class='price'>¥{{item.price}}</view>
+                        <view class='a-grey a-tag'>{{item.produceName}}</view>
                     </view>
                 </view>
-                <view>
+
+                <view class='a-bottom'>
                     <view class='a-port'>
-                        <image class='a-img' src='http://pic.c-ctrip.com/flight_intl/airline_logo/40x35/{{item.alcode}}.png'></image>
-                        {{item.airlineName}} {{item.flightno}} | {{item.airlineplan}}</view>
+                        <image class='a-img' src='{{imgUrl+item.alcode}}.png'></image>
+                        {{item.airlineName}} {{item.flightno}} | {{item.airlineplan}}
+                    </view>
+                    <view>
+                        {{item.fly_list_detail.cabinList.cabinLeft
+                        < 9 ? item.fly_list_detail.cabinList.cabinLeft : '票量充足'}} </view>
+                    </view>
                 </view>
             </view>
-            <view class='a-price'>
-                <view class='price'>¥{{item.price}}</view>
-                <view class='a-grey a-tag'>{{item.produceName}}</view>
+    </scroll-view>
+
+    <view class='line-panel' wx:if="{{airLineStatus}}">
+        <view class='line-list' bindtap='toggleAirLine'>
+            <view class='line-item {{currentAirLine == index ?"line-active":""}}' data-index="{{index}}" data-id="{{item.alcode}}" wx:for="{{airLine}}" wx:key="airLine">
+                <view class='f-c-l'>
+                    <image src='{{imgUrl+item.alcode}}.png' wx:if="{{item.alcode}}"></image>
+                    <text>{{item.airlineName}}</text>
+                </view>
             </view>
         </view>
     </view>
-</view>
+
+    <view class='f-bar'>
+        <view> <view class='icon icon-time'></view> 时间 </view>
+        <view bindtap='filterAirline'> <view class='icon icon-airline'></view>航空公司 </view>
+        <view> <view class='icon icon-price'></view>价格 </view>
+    </view>
+</block>
+
 <view class='air' wx:else>
     <view class='air-form'>
         <view class='air-local'>
             <view class='air-inuts'>
-                <input class='air-input' placeholder='出发' bindtap='toCity' value='{{dpt}}'></input>
-                <input placeholder='到达' class='air-input border-no' bindtap='toCity' value='{{ept}}'></input>
+                <view class='air-inputs'>
+                    <!-- <view class='icon icon-ept'></view> -->
+                    <input class='air-input' placeholder='出发' bindtap='toCity' value='{{dpt}}'></input>
+                </view>
+                <view class='air-inputs'>
+                    <!-- <view class='icon icon-dpt'></view> -->
+                    <input placeholder='到达' class='air-input border-no' bindtap='toCity' value='{{ept}}'></input>
+                </view>
             </view>
-            <view class='toggle-local f-c ico icon-toggle-line' bindtap='toggleAir'>换</view>
+            <view class='f-c icon icon-exchange toggle-local' bindtap='toggleAir'></view>
         </view>
-        <view class='air-date'>
-            <view class='date-title'> 出发日期 </view>
-            <view>2018-05-22</view>
+        <view class='air-date f-c-l'>
+
+            <view class='icon icon-datepicker'></view>
+            <view>
+                <view class='date-title'> 出发日期 </view>
+                <view>2018-05-22</view>
+            </view>
         </view>
-        <button class='button' bindtap='airSearch'>搜索</button>
+        <button class='button' bindtap='airSearch'>
+            <view class='icon icon-search'></view>
+            搜索</button>
     </view>
 </view>

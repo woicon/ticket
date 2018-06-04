@@ -52,6 +52,12 @@
 					"name": "aircity",
 					"pathName": "pages/airCity/airCity",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "airDetail",
+					"pathName": "pages/airDetail/airDetail",
+					"query": ""
 				}
 			]
 		}

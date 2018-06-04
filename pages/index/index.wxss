@@ -1,39 +1,35 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+page{
+    box-sizing:border-box;
+    color:#444;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.index{
+    width:100%;overflow:hidden;
+    padding-bottom:1px;
 }
-
-.userinfo-nickname {
-  color: #aaa;
+.f-grid{
+ 
+    display: flex;
+    flex-wrap:wrap;
+    margin-right:-4px;
+    
 }
-.air-block{
-    clear: both;
-    margin:20rpx 0;
+.f-grid .icon{
+    font-size:70rpx;
+    margin:20rpx 0 10rpx;
 }
-.city{
-    width:33%;
-    display:inline-block;
-    font-size:26rpx;
-    line-height:2;
-
-}
-.airport{
-    padding:0 50rpx;
-}
-.nums{
-    font-size:30rpx;
-    font-weight:800;
-
-}
-.usermotto {
-  margin-top: 200px;
+.f-grid navigator{
+    width:50%;
+    border:1px solid #eee;
+    margin-left:-1px;
+    margin-bottom:-1px;
+    text-align:center;
+    height:200rpx;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    font-size:32rpx;
+    
+        box-sizing:border-box;
+        padding:0 40rpx;
 }

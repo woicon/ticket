@@ -1,16 +1,24 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/air/air",
-    "pages/train/train",
-    "pages/airCity/airCity",
-    "pages/reg/reg",
-    "pages/member/member"
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
-  }
+    "pages": [
+        "pages/index/index",
+        "pages/air/air",
+        "pages/airDetail/airDetail",
+        "pages/train/train",
+        "pages/airCity/airCity",
+        "pages/reg/reg",
+        "pages/member/member",
+        "pages/bus/bus",
+        "pages/order/order",
+        "pages/airTeam/airTeam"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "networkTimeout": {
+        "request": 50000,
+        "downloadFile": 50000
+    }
 }

@@ -1,26 +1,126 @@
-page{
-    color:#444;
-    box-sizing:border-box;
+page {
+    color: #444;
+    box-sizing: border-box;
 }
-input{
-    color:#444;
+
+input {
+    color: #444;
 }
-.f-c{
+
+.f-c {
     display: flex;
-    align-items:center;
-    justify-content:center;
+    align-items: center;
+    justify-content: center;
 }
-.f-m{
+
+.f-c-l {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.f-m {
     display: flex;
 }
 
-.button{
-    background:tomato;
-    color:#fff;
-    margin-top:40rpx;
+.button {
+    background: tomato;
+    color: #fff;
+    margin-top: 40rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.price{
-    color:tomato;
+.button .icon {
+    margin-right: 15rpx;
+}
+
+.price {
+    color: tomato;
     font-weight: 800;
 }
+
+.air-loading {
+    width: 80rpx;
+    height: 80rpx;
+    border: 12rpx solid #444;
+    border-radius: 530rpx;
+    animation: rod 0.5s infinite;
+    line-height: 150rpx;
+    border-left: rgba(90, 90, 90, 0.1);
+    text-align: center;
+    font-size: 33rpx;
+}
+
+.loadingpage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+@keyframes rod {
+    10% {
+        transform: rotate(45deg);
+    }
+
+    30% {
+        transform: rotate(90deg);
+    }
+
+    50% {
+        transform: rotate(135deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@font-face {
+  font-family: 'iconfont';  /* project id 693778 */
+  src: url('//at.alicdn.com/t/font_693778_o7eyurv5wcplow29.eot');
+  src: url('//at.alicdn.com/t/font_693778_o7eyurv5wcplow29.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_693778_o7eyurv5wcplow29.woff') format('woff'),
+  url('//at.alicdn.com/t/font_693778_o7eyurv5wcplow29.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_693778_o7eyurv5wcplow29.svg#iconfont') format('svg');
+}
+.icon {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-dpt:before { content: "\e60a"; }
+
+.icon-datepicker:before { content: "\e60b"; }
+
+.icon-airline:before { content: "\e60c"; }
+
+.icon-bus:before { content: "\e60d"; }
+
+.icon-ept:before { content: "\e60e"; }
+
+.icon-date:before { content: "\e60f"; }
+
+.icon-exchange:before { content: "\e610"; }
+
+.icon-search:before { content: "\e611"; }
+
+.icon-order:before { content: "\e612"; }
+
+.icon-time:before { content: "\e613"; }
+
+.icon-train:before { content: "\e614"; }
+
+.icon-trip:before { content: "\e615"; }
+
+.icon-price:before { content: "\e616"; }
+
+.icon-ticker:before { content: "\e617"; }
+
+.icon-lines:before { content: "\e618"; }

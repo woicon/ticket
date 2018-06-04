@@ -1,0 +1,29 @@
+<view class='a-air'>
+    <view class='a-info'>
+        <view class='a-airport'>
+            <view class='a-dpt'>
+                <view class='a-time'>{{air.dptime}}</view>
+                <view class='a-area a-grey'>{{air.dpt_air_name}} {{air.fly_list_detail.terminal_start}}</view>
+            </view>
+            <view class='ico icon-line'></view>
+            <view class='a-ept'>
+                <view class='a-time'>{{air.eptime}}</view>
+                <view class='a-area a-grey'>{{air.ept_air_name}} {{air.fly_list_detail.terminal_end}}</view>
+            </view>
+        </view>
+        <view class='a-price'>
+            <view class='price'>¥{{air.price}}</view>
+            <view class='a-grey a-tag'>{{air.produceName}}</view>
+        </view>
+    </view>
+
+    <view class='a-bottom'>
+        <view class='a-port'>
+            <image class='a-img' src='{{imgUrl+air.alcode}}.png'></image>
+            {{air.airlineName}} {{air.flightno}} | {{air.airlineplan}}
+        </view>
+        <view>
+            {{air.fly_list_detail.cabinList.cabinLeft
+            < 9 ? air.fly_list_detail.cabinList.cabinLeft : '票量充足'}} </view>
+        </view>
+    </view>
