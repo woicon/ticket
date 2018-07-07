@@ -6,7 +6,7 @@ Page({
         ept: "成都",
         imgUrl: 'http://pic.c-ctrip.com/flight_intl/airline_logo/40x35/',
         searchData: {
-            date: '2018-06-21',
+            date: '2018-07-13',
             clientId: "/lItIoqTVIQ=",//wx.getStorageSync("clientId"),
             dstAirportCode: 'PEK', //起飞
             orgAirportCode: 'CTU' //到达
