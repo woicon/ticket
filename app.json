@@ -9,6 +9,7 @@
         "pages/member/member",
         "pages/bus/bus",
         "pages/order/order",
+        "pages/datePicker/datePicker",
         "pages/airTeam/airTeam"
     ],
     "window": {

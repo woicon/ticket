@@ -25,6 +25,7 @@ page {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    flex-basis:100rpx;
 }
 
 .a-price .price {
@@ -64,7 +65,7 @@ page {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    width: 500rpx;
+    margin-right:20rpx;
 }
 
 .a-airport .icon {
