@@ -12,11 +12,12 @@ Component({
 
         }
     },
-    created:function(){
-        
+    created: function () {
+        const DatePicker = require('./DateClass.js')
+        let date = new DatePicker.DatePicker()
     },
-    attached:function(){
-        
+    attached: function () {
+
     }
 
 })

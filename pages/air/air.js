@@ -61,10 +61,6 @@ Page({
             //     //console.log(ss)
             //     //flight[n]=ss
             // }
-
-            
-         
-
             this.setData({
                 air: air,
                 pageLoading: false,
