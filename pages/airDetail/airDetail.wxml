@@ -1,29 +1,47 @@
+<block wx:if="{{empty}}">
+    <view>
+    
+    </view>
+</block>
+<block wx:else>
 <view class='a-air'>
+     <view class='a-bottom'>
+        <view class='a-port'>
+            <image class='a-img' src='{{imgUrl+air.alcode}}.png'></image>
+            {{air.airlineName}} {{air.flightno}} | 机型 {{air.airlineplan}}
+        </view>
+    </view>
     <view class='a-info'>
         <view class='a-airport'>
             <view class='a-dpt'>
                 <view class='a-time'>{{air.dptime}}</view>
                 <view class='a-area a-grey'>{{air.dpt_air_name}} {{air.fly_list_detail.terminal_start}}</view>
             </view>
-            <view class='ico icon-line'></view>
+            <view class='icon icon-lines'></view>
             <view class='a-ept'>
                 <view class='a-time'>{{air.eptime}}</view>
                 <view class='a-area a-grey'>{{air.ept_air_name}} {{air.fly_list_detail.terminal_end}}</view>
             </view>
         </view>
-        <view class='a-price'>
-            <view class='price'>¥{{air.price}}</view>
-            <view class='a-grey a-tag'>{{air.produceName}}</view>
-        </view>
     </view>
+    <view>
+        <view class='icon icon-datepicker'></view>
+        {{airDate}}
+        {{week[dateWeek]}}
+    </view>
+   
+</view>
 
-    <view class='a-bottom'>
-        <view class='a-port'>
-            <image class='a-img' src='{{imgUrl+air.alcode}}.png'></image>
-            {{air.airlineName}} {{air.flightno}} | {{air.airlineplan}}
-        </view>
-        <view>
-            {{air.fly_list_detail.cabinList.cabinLeft
-            < 9 ? air.fly_list_detail.cabinList.cabinLeft : '票量充足'}} </view>
-        </view>
+<view wx:for="{{air.fly_list_detail.cabinList}}" wx:key="cabinList" class='cablist'>
+    <view>
+            <view>
+                {{item.cabintype}} <text class='price'>¥{{item.price}}</text>
+            </view>
+            <view class='cab-tag'>{{item.produceName}}/{{item.cabincode}}舱/ {{(item.cabinLeft < 9) ? item.cabinLeft: '票量充足' }} </view>
+            <view>{{}}</view>
     </view>
+        <view>
+            <view class='cab-button' bindtap='sendOrder'>预定</view>
+        </view>
+</view>
+</block>

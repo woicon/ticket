@@ -40,6 +40,7 @@ const api = [
     "userReg",          //用户注册
     "getUserIsReg",     //获取用户是否注册
     "getAirCity",       //获取机场三字码
+    "airFlightDetail",  //机票详情
     "getTrainCity",     //获取火车票三字码
     "getAuthInfo",      //微信 登录凭证校验
     "airSearch",        //机票查询

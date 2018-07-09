@@ -1,1 +1,81 @@
-/* pages/airDetail/airDetail.wxss */
+page {
+    background: #fafafa;
+}
+
+.a-airport {
+    display: flex;
+    justify-content: space-between;
+}
+
+.a-airport .icon {
+    flex-grow: 2;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.a-time {
+    font-size: 50rpx;
+    font-weight: 700;
+}
+
+.a-air {
+    margin: 40rpx;
+    box-shadow: 0 10px 30px rgba(90, 90, 90, 0.1);
+    background: #fff;
+    padding: 30rpx;
+}
+
+.a-area {
+    font-size: 24rpx;
+}
+
+.a-dpt, .a-ept {
+    width: 200rpx;
+}
+
+.a-dpt {
+    text-align: right;
+}
+
+.a-port {
+    display: flex;
+}
+
+.a-port image {
+    width:32rpx;
+    height:32rpx;
+    margin-right:8rpx;
+}
+
+.cablist {
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 40rpx;
+}
+
+.a-bottom {
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+    color: #999;
+    padding: 30rpx 0 0;
+}
+
+.cab-tag {
+    font-size: 26rpx;
+    color: #888;
+}
+
+.cab-button {
+    line-height: 70rpx;
+    padding: 0 30rpx;
+    width: 80rpx;
+    text-align: center;
+    background: tomato;
+    color: #fff;
+    font-size: 28rpx;
+    border-radius: 2px;
+}

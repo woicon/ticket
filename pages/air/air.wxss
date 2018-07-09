@@ -5,7 +5,9 @@
 page {
     background: #fafafa;
 }
-
+.a-dpt,.a-ept{
+    width:210rpx;
+}
 .a-item {
     padding: 28rpx;
     background: #fff;
@@ -66,9 +68,13 @@ page {
 }
 
 .a-airport .icon {
-    font-size:50rpx;
+    font-size:46rpx;
     text-align:center;
     margin-top:-4rpx;
+    width:80rpx;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .a-port {
@@ -241,6 +247,7 @@ page {
     bottom: 90rpx;
     background: #fff;
     padding: 0 40rpx;
+    animation: slideInUp .4s ease-in;
 }
 
 .line-item {

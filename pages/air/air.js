@@ -4,6 +4,10 @@ Page({
     data: {
         dpt: "北京",
         ept: "成都",
+        filterTime: ['从早到晚', '从晚到早'],
+        filterPrice: ['从低到高', '从高到低'],
+        currentPrice: null,
+        currentTime: null,
         imgUrl: 'http://pic.c-ctrip.com/flight_intl/airline_logo/40x35/',
         searchData: {
             date: '2018-06-21',
@@ -15,11 +19,34 @@ Page({
         currentAirLine: 0,
         airLineStatus: false
     },
-    filterAirline: function () {
-        let status = this.data.airLineStatus
-        this.setData({
-            airLineStatus: !status
-        })
+    filterAir: function (e) {
+        console.log(e)
+
+        switch (e.currentTarget.id) {
+            case 'price':
+                let currst = this.data.currentPrice
+                this.setData({
+                    currentPrice: currst < 1 ? (currst + 1) : 0
+                })
+                break
+            case 'date':
+                // let times = this.data.filterTime.length - 1
+                let currs = this.data.currentTime
+                this.setData({
+                    currentTime: currs < 1 ? (currs + 1) : 0
+                })
+                break
+            case 'airline':
+                let status = this.data.airLineStatus
+                this.animation.rotate(45).scale(2, 2).step()
+
+                this.setData({
+                    airLineStatus: !status,
+                    animationData: this.animation.export()
+                })
+                break
+        }
+
     },
     toggleAir: function () {
         this.setData({
@@ -28,6 +55,11 @@ Page({
         })
     },
     onShow: function (options) {
+        var animation = wx.createAnimation({
+            duration: 1000,
+            timingFunction: 'ease',
+        })
+        wx.setStorageSync('clientId','/lItIoqTVIQ=')
         try {
             let air = wx.getStorageSync("air")
             let airline = wx.getStorageSync("airline")
@@ -61,10 +93,6 @@ Page({
             //     //console.log(ss)
             //     //flight[n]=ss
             // }
-
-            
-         
-
             this.setData({
                 air: air,
                 pageLoading: false,
@@ -103,9 +131,6 @@ Page({
     filterCompany: function () {
 
     },
-    filterAir: function () {
-
-    },
     airSearch: function () {
         const parmas = this.data.searchData
         this.setData({
@@ -131,8 +156,6 @@ Page({
                         }
                     }
                 }
-
-
                 //航司选择
                 var airline = []
                 for (let s in air) {
@@ -152,8 +175,6 @@ Page({
                 airline.unshift({
                     airlineName: "全部航空公司"
                 })
-
-
                 this.setData({
                     air: air,
                     pageLoading: false,
@@ -169,9 +190,12 @@ Page({
             title: '国内机票查询',
         })
     },
-    goDetail:function(e){
+    goDetail: function (e) {
         console.log(e)
-        wx.setStorageSync("airDetail",this.data.air[e.currentTarget.dataset.index])
+        wx.setStorageSync("airDetail", this.data.air[e.currentTarget.dataset.index])
+        wx.setStorageSync("airDate", this.data.searchData.date)
+        wx.setStorageSync("airDetail", this.data.air[e.currentTarget.dataset.index])
+        wx.setStorageSync("flightId",e.currentTarget.id)
         wx.navigateTo({
             url: '/pages/airDetail/airDetail',
         })

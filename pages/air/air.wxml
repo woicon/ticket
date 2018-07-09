@@ -15,7 +15,7 @@
     </view>
     <scroll-view class='scroll-air' scroll-y>
         <view class='air-list'>
-            <view class='a-item' wx:for="{{air}}" wx:key="airList" bindtap='goDetail' data-item="{{item}}" data-index="{{index}}">
+            <view class='a-item' wx:for="{{air}}" wx:key="airList" id="{{item.flightId}}" bindtap='goDetail' data-item="{{item}}" data-index="{{index}}">
                 <view class='a-info'>
                     <view class='a-airport'>
                         <view class='a-dpt'>
@@ -47,7 +47,7 @@
             </view>
     </scroll-view>
 
-    <view class='line-panel' wx:if="{{airLineStatus}}">
+    <view class='line-panel' wx:if="{{airLineStatus}}" animation="{{animationData}}">
         <view class='line-list' bindtap='toggleAirLine'>
             <view class='line-item {{currentAirLine == index ?"line-active":""}}' data-index="{{index}}" data-id="{{item.alcode}}" wx:for="{{airLine}}" wx:key="airLine">
                 <view class='f-c-l'>
@@ -59,9 +59,9 @@
     </view>
 
     <view class='f-bar'>
-        <view> <view class='icon icon-time'></view> 时间 </view>
-        <view bindtap='filterAirline'> <view class='icon icon-airline'></view>航空公司 </view>
-        <view> <view class='icon icon-price'></view>价格 </view>
+        <view id='date' catchtap='filterAir'> <view class='icon icon-time'></view>{{filterTime[currentTime] || '时间排序'}}</view>
+        <view id='airline' catchtap='filterAir'> <view class='icon icon-airline'></view>航空公司 </view>
+        <view id='price' catchtap='filterAir'> <view class='icon icon-price'></view>{{filterPrice[currentPrice] || '价格排序'}} </view>
     </view>
 </block>
 

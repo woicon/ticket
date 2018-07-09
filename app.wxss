@@ -79,6 +79,15 @@ input {
     }
 }
 
+@keyframes slideInUp{
+    0%{
+        transform:translateY(100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
 @font-face {
   font-family: 'iconfont';  /* project id 693778 */
   src: url('//at.alicdn.com/t/font_693778_o7eyurv5wcplow29.eot');
