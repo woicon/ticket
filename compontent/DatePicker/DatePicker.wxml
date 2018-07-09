@@ -1,5 +1,0 @@
-<view class="d-week">
-<view wx:for="{{week}}" wx:key="weekDate">
-周{{item}}
-</view>
-</view>
