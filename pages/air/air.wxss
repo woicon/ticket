@@ -1,5 +1,6 @@
 .air {
     padding: 40rpx;
+    background:#fff;
 }
 
 page {
@@ -69,7 +70,7 @@ page {
 }
 
 .a-airport .icon {
-    font-size:46rpx;
+    font-size:90rpx;
     text-align:center;
     margin-top:-4rpx;
     width:80rpx;
@@ -105,10 +106,9 @@ page {
 }
 
 .air-input {
-    border-bottom: 1px solid #ccc;
     padding: 30rpx 0;
-    flex-grow: 2;
-    
+
+    font-size:46rpx;
 }
 
 .air-inuts {
@@ -128,7 +128,6 @@ page {
 }
 
 .air-form .icon {
-    font-size: 44rpx;
    margin-right:15rpx;
 }
 
@@ -281,12 +280,14 @@ page {
 }
 
 .toggle-local {
-    width: 80rpx;
-    height: 80rpx;
+    width: 60rpx;
+    height: 60rpx;
     background: #333;
     color: #fff;
-    font-size: 42rpx;
-    line-height:80rpx;
-    border-radius: 100px;
+    font-size:32rpx;
+    line-height:60rpx;
+    border-radius: 200px;
     margin-right:none;
+    flex-basis:60rpx;
+    flex-shrink:0;
 }

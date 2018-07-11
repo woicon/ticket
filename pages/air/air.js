@@ -10,7 +10,7 @@ Page({
         currentTime: null,
         imgUrl: 'http://pic.c-ctrip.com/flight_intl/airline_logo/40x35/',
         searchData: {
-            date: '2018-07-13',
+            date: '2018-07-14',
             clientId: "/lItIoqTVIQ=",//wx.getStorageSync("clientId"),
             dstAirportCode: 'PEK', //起飞
             orgAirportCode: 'CTU' //到达
@@ -52,6 +52,11 @@ Page({
         this.setData({
             dpt: this.data.ept,
             ept: this.data.dpt
+        })
+    },
+    toDatePicker:function(){
+        wx.navigateTo({
+            url: '/pages/datePicker/datePicker',
         })
     },
     onShow: function (options) {
@@ -123,9 +128,9 @@ Page({
 
     },
 
-    toCity: function () {
+    toCity: function (e) {
         wx.navigateTo({
-            url: '/pages/airCity/airCity',
+            url: `/pages/airCity/airCity?title=${e.currentTarget.dataset.tip}`,
         })
     },
     filterCompany: function () {

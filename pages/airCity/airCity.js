@@ -8,6 +8,9 @@ Page({
         cityFuzzy:[],
     },
     onLoad: function (options) {
+        wx.setNavigationBarTitle({
+            title: options.title,
+        })
         //获取城市二字码
         api.getAirCity()
             .then(res => {
@@ -15,6 +18,7 @@ Page({
                 const city = res.dataList
                 let s = Object.keys(city)
                 const citys = base.sortObj(city)
+                let hotCity = citys.domesticHot
                 delete citys.domesticHot
                 const news = s.map(i => {
                     return i == 'domesticHot' ? '#' : i
@@ -22,6 +26,7 @@ Page({
                 console.log(news.sort())
                 this.setData({
                     city: citys,
+                    hotCity: hotCity,
                     cityLetter: news.sort()
                 })
             })
@@ -55,24 +60,6 @@ Page({
                 }
             }
         }
-        // let objRund = obj =>{
-        //     for(let i in obj){
-        //         console.log(typeof obj[i])
-        //         if (typeof obj[i] == 'Array'){
-        //             objRund(obj[i])
-        //             let arr = obj[i]
-        //         }
-        //         else if (typeof obj[i] == "String"){
-        //             objRund(obj[i])
-        //             if(obj[i]==txt){
-        //                 console.log(obj[i])
-        //             }
-        //         }
-        //         break
-        //        // return obj[i]
-        //     }
-        // }
-        // objRund(city)
         return fuzzy
     },
     touchLetter: function (e) {

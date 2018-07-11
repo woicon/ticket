@@ -8,13 +8,6 @@ Page({
     },
 
     onLoad: function (options) {
-        // let air = wx.getStorageSync("airDetail")
-        // let detail = air.fly_list_detail
-        // this.setData({
-        //     air:air,
-        //     detail:detail
-        // })
-        ///let flightId
         let parmas = {
             flightId: wx.getStorageSync("flightId"),
             clientId: wx.getStorageSync("clientId")

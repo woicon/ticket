@@ -1,5 +1,5 @@
 {
     "usingComponents": {
-        "DatePicker": "/compontent/DatePicker/DatePicker"
+        "DatePicker": "/component/DatePicker/DatePicker"
     }
 }

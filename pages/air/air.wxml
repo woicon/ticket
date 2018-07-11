@@ -11,7 +11,7 @@
     <view class='date-bar'>
         <view class='day day-prev'> 前一天</view>
         <view class='date-bar-time'> {{searchData.date}}</view>
-         <view class='day day-next'> 后一天</view>
+        <view class='day day-next'> 后一天</view>
     </view>
     <scroll-view class='scroll-air' scroll-y>
         <view class='air-list'>
@@ -59,30 +59,30 @@
     </view>
 
     <view class='f-bar'>
-        <view id='date' catchtap='filterAir'> <view class='icon icon-time'></view>{{filterTime[currentTime] || '时间排序'}}</view>
-        <view id='airline' catchtap='filterAir'> <view class='icon icon-airline'></view>航空公司 </view>
-        <view id='price' catchtap='filterAir'> <view class='icon icon-price'></view>{{filterPrice[currentPrice] || '价格排序'}} </view>
+        <view id='date' catchtap='filterAir'>
+            <view class='icon icon-time'></view>{{filterTime[currentTime] || '时间排序'}}</view>
+        <view id='airline' catchtap='filterAir'>
+            <view class='icon icon-airline'></view>航空公司 </view>
+        <view id='price' catchtap='filterAir'>
+            <view class='icon icon-price'></view>{{filterPrice[currentPrice] || '价格排序'}} </view>
     </view>
 </block>
 
 <view class='air' wx:else>
     <view class='air-form'>
         <view class='air-local'>
-            <view class='air-inuts'>
-                <view class='air-inputs'>
-                    <!-- <view class='icon icon-ept'></view> -->
-                    <input class='air-input' placeholder='出发' bindtap='toCity' value='{{dpt}}'></input>
-                </view>
-                <view class='air-inputs'>
-                    <!-- <view class='icon icon-dpt'></view> -->
-                    <input placeholder='到达' class='air-input border-no' bindtap='toCity' value='{{ept}}'></input>
-                </view>
+            <view class='air-inputs'>
+                <!-- <view class='icon icon-ept'></view> -->
+                <input class='air-input' placeholder='选择出发城市' data-tip="选择出发城市"  bindtap='toCity' value='{{dpt}}'></input>
             </view>
             <view class='f-c icon icon-exchange toggle-local' bindtap='toggleAir'></view>
+            <view class='air-inputs'>
+                <!-- <view class='icon icon-dpt'></view> -->
+                <input placeholder='选择到达城市' data-tip="选择到达城市" class='text-right air-input' bindtap='toCity' value='{{ept}}'></input>
+            </view>
         </view>
-        <view class='air-date f-c-l'>
-
-            <view class='icon icon-datepicker'></view>
+        <view class='air-date f-c-l' bindtap='toDatePicker'>
+            <!-- <view class='icon icon-datepicker'></view> -->
             <view>
                 <view class='date-title'> 出发日期 </view>
                 <view>2018-05-22</view>

@@ -1,6 +1,7 @@
-<view class='search'>
-    <view>
-        <input placeholder='搜索' bindinput='cityInput' value='{{selectTxt}}'></input>
+<view class='search bline'>
+    <view class='search-bar'>
+        <view class='ico icon-search'></view>
+        <input placeholder='输入国内城市中英文或者拼音' bindinput='cityInput' value='{{selectTxt}}'></input>
     </view>
 </view>
 <view class='letter' bindtap='touchLetter' wx:if="{{cityFuzzy.length == 0}}">
@@ -9,16 +10,24 @@
     </view>
 </view>
 <scroll-view scroll-y class='city-scroll' scroll-top="{{cityScroll}}" scroll-with-animation="true" scroll-into-view="{{scrollLetter}}" bindscroll="cityScrolling">
-    <view class='city-list' wx:if="{{cityFuzzy.length == 0}}">
-        <view wx:for="{{city}}" wx:key="citys">
-            <view class='city-letter' id="{{index}}">{{index}}</view>
-            <view class='city-item' wx:for="{{item}}" wx:key="subCity" wx:for-item="i" wx:for-index="n">
-                {{i[2]}}
+    <block wx:if="{{cityFuzzy.length == 0}}">
+        <view class='hot-title'>热门城市</view>
+        <view class='city-hot'>
+            <view class='city-hot-warp'>
+                <view class='hot-item' hover-class='hot-item-touch' wx:for="{{hotCity}}" wx:key="hotCity">{{item[2]}}</view>
             </view>
         </view>
-    </view>
+        <view class='city-list'>
+            <view wx:for="{{city}}" wx:key="citys">
+                <view class='city-letter' id="{{index}}">{{index}}</view>
+                <view class='bline city-item' hover-class='city-item-touch' wx:for="{{item}}" wx:key="subCity" wx:for-item="i" wx:for-index="n">
+                    {{i[2]}}
+                </view>
+            </view>
+        </view>
+    </block>
     <view class='city-fuzzy' bindtap='selectCity' wx:else>
-        <view wx:for="{{cityFuzzy}}" wx:key="fuzzy" class='fuzzy-item'>
+        <view wx:for="{{cityFuzzy}}" wx:key="fuzzy" class='bline fuzzy-item'>
             <view class='fuzzy-name'>{{item[2]}}</view>
             <view class='fuzzy-code'>{{item[0]}}({{item[4]}})</view>
         </view>
