@@ -16,6 +16,7 @@ App({
                 data: res.dataList,
             })
         })
+        
         this.login()
     },
     login: function () {
@@ -31,6 +32,7 @@ App({
                     .then(res => {
                         console.log(res)
                         wx.setStorageSync("authInfo", res.dataList)
+                        this.getUserIsReg()
                     })
             }
         })
@@ -48,7 +50,7 @@ App({
             }
             api.getUserIsReg(parmas)
                 .then(res => {
-                    console.log(res)
+                    console.log("isReg:::",res)
                     wx.setStorageSync("isReg", res.dataList.isReg)
                     wx.setStorageSync("clientId", res.dataList.clientId)
                 })

@@ -1,3 +1,6 @@
+page{
+    background:#f3f3f3;
+}
 .auth{
     display: flex;
     flex-direction: column;
@@ -22,4 +25,50 @@
     width:140rpx;
     height:140rpx;
     border-radius:90rpx;
+}
+
+.m{
+    background:#fff;
+}
+.m-item{
+    padding:32rpx 40rpx;
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.m-item::after{
+    content:'';
+    display:block;
+    width:12rpx;
+    height:12rpx;
+     border:2px solid #ccc;
+    border-left:none;
+    border-bottom:none;
+    transform:rotate(45deg);
+   
+}
+.m-item .ico{
+    font-size:45rpx;
+    margin-right:20rpx;
+    flex-basis:40rpx;
+    
+}
+.m-head{
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:50rpx 0;
+}
+.m-subtitle{
+    font-size:26rpx;
+    color:#666;
+}
+.m-name{
+    font-size:30rpx;
+    flex-grow:2;
+    color:#444;
+}
+.m-head{
+    background:#fff;
 }

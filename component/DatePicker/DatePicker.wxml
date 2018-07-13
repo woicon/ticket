@@ -1,5 +1,14 @@
-<view class="d-week">
-<view wx:for="{{week}}" wx:key="weekDate">
-周{{item}}
+<view class="bline d-week">
+    <view wx:for="{{week}}" wx:key="weekDate">
+        周{{item}}
+    </view>
 </view>
+
+<view>
+    <view wx:for="{{picker}}" wx:key="picker">
+        <view class='date-head'>{{item.year}}年{{item.month}}月</view>
+        <view class='date-grid'>
+            <view wx:for="{{item.dayList}}" bindtap='{{((item.year+""+item.month+""+day)-0)*1 < (nowDate-0)*1 ? "":"selectDate"}}' data-date="{{item.year}}-{{item.month}}-{{day}}" wx:key="dayList" wx:for-item="day" class='day {{item.year+""+item.month+""+day == nowDate ? "active":""}} {{((item.year+""+item.month+""+day)-0)*1 < (nowDate-0)*1 ? "disable":""}}' hover-class='day-touch'>{{day}}</view>
+        </view>
+    </view>
 </view>

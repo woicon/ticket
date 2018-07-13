@@ -21,7 +21,14 @@ function ajax(url, parmas, ajaxType, headers) {
                     'content-type': headers || 'application/json' // 默认值
                 },
                 success: data => {
-                    res(data.data)
+                    if (data.data.getStatus) {
+                        res(data.data)
+                    } else {
+                        wx.showToast({
+                            title: data.data.errorMsg,
+                            icon: 'none',
+                        })
+                    }
                 },
                 fail: error => {
                     rej(error)
@@ -29,32 +36,21 @@ function ajax(url, parmas, ajaxType, headers) {
             })
         })
     } catch (error) {
-
+        console.log(error)
     }
 }
 const api = [
-<<<<<<< HEAD
-    "getSupplierInfo",  //机票查询
-    "sendRegMobile",    //用户发送短信验证码
-    "userReg",          //用户注册
-    "getUserIsReg",     //获取用户是否注册
-    "getAirCity",       //获取机场三字码
-    "airFlightDetail",  //机票详情
-    "getTrainCity",     //获取火车票三字码
-    "getAuthInfo",      //微信 登录凭证校验
-    "airSearch",        //机票查询
-    "wxencryptedData",  //微信敏感数据解密
-=======
-    "getSupplierInfo", //机票查询
+    "getSupplierInfo", //代理查询
     "sendRegMobile", //用户发送短信验证码
     "userReg", //用户注册
     "getUserIsReg", //获取用户是否注册
     "getAirCity", //获取机场三字码
+    "airFlightDetail", //机票详情
     "getTrainCity", //获取火车票三字码
     "getAuthInfo", //微信 登录凭证校验
     "airSearch", //机票查询
     "wxencryptedData", //微信敏感数据解密
->>>>>>> e994360eb2e0ce6fa8984634424eaf39070aec10
+    "getFrequentPassenger", //获取全部常旅客
 ]
 let apiList = arr => {
     let api = {}

@@ -1,0 +1,21 @@
+/* component/Login/Login.wxss */
+.reg{
+    padding:0 50rpx;
+}
+.reg-input{
+    font-size:32rpx;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.reg-code{
+    padding:22rpx 34rpx;
+    font-size:28rpx;
+    background:#eee;
+}
+.reg-input input{
+    padding:20rpx 0;
+}
+.reg-bar{
+    margin:40rpx 0;
+}

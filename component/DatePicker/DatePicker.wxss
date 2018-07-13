@@ -1,8 +1,48 @@
+page{
+    padding-top:90rpx;
+}
 .d-week{
     display:flex;
+    position:fixed;
+    left:0;
+    right:0;
+    top:0;
+    background:#fff;
+    box-shadow:0 2px 20px rgba(0, 0, 0, .1);
 }
 .d-week>view{
     width:14.25871%;
     text-align:center;
-    color:#444;font-size:26rpx;
+    color:#444;
+    font-size:26rpx;
+    padding:20rpx 0;
+}
+.date-grid{
+    display: flex;
+    flex-wrap:wrap;
+    align-items:center;
+   
+}
+.date-head{
+    padding:40rpx;
+}
+.date-grid>view{
+    width:14.25871%;
+    font-size:28rpx;
+    text-align:center;
+    height:70rpx;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    color:#444;
+}
+.day.active{
+    background:tomato;
+    color:#fff;
+}
+.day.disable{
+    opacity:.2;
+}
+.day-touch{
+    background:#eee;
 }

@@ -15,6 +15,9 @@ Page({
         } catch (error) {
             console.log("error::::", error)
         }
+        wx.setNavigationBarTitle({
+            title: '个人中心',
+        })
     },
     
     getUserInfo: function (e) {

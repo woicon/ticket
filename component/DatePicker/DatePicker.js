@@ -8,16 +8,18 @@ Component({
 
     },
     methods: {
-        init: function () {
+        init: function() {
 
         }
     },
-    created: function () {
+    attached: function() {
         const DatePicker = require('./DateClass.js')
-        let date = new DatePicker.DatePicker()
-    },
-    attached: function () {
-
+        let dates = new DatePicker()
+        const dateList = dates.init()
+        let nowDate = dates.systemDate()
+        this.setData({
+            picker: dateList,
+            nowDate: `${nowDate.year}${nowDate.month+1}${nowDate.day}`
+        })
     }
-
 })

@@ -23,7 +23,7 @@ Page({
 
     },
     onLoad: function () {
-        app.getUserIsReg()
+       
     },
     getUserInfo: function (e) {
 

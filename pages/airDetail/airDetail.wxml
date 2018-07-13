@@ -32,7 +32,7 @@
    
 </view>
 
-<view wx:for="{{air.fly_list_detail.cabinList}}" wx:key="cabinList" class='cablist'>
+<view wx:for="{{air.fly_list_detail.cabinList}}" wx:key="cabinList" class='cablist bline'>
     <view>
             <view>
                 {{item.cabintype}} <text class='price'>¥{{item.price}}</text>

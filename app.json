@@ -10,6 +10,7 @@
         "pages/bus/bus",
         "pages/order/order",
         "pages/datePicker/datePicker",
+        "pages/passengers/passengers",
         "pages/airTeam/airTeam"
     ],
     "window": {
@@ -21,5 +22,37 @@
     "networkTimeout": {
         "request": 50000,
         "downloadFile": 50000
+    },
+    "tabBar": {
+        "color":"#ACAEB8",
+        "selectedColor":"#3D3F47",
+        "borderStyle":"white",
+        "backgroundColor":"#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath":"images/index.png",
+                "selectedIconPath":"images/index-sel.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/order/order",
+                "iconPath": "images/order.png",
+                "selectedIconPath": "images/order-sel.png",
+                "text": "订单"
+            },
+            {
+                "pagePath": "pages/train/train",
+                "iconPath": "images/rbag.png",
+                "selectedIconPath": "images/rbag-sel.png",
+                "text": "团队"
+            },
+            {
+                "pagePath": "pages/member/member",
+                "iconPath": "images/member.png",
+                "selectedIconPath": "images/member-sel.png",
+                "text": "个人中心"
+            }
+        ]
     }
 }
