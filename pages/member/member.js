@@ -9,8 +9,10 @@ Page({
     onLoad: function (options) {
         try {
             let UserInfo = wx.getStorageSync("userInfo")
+            
             this.setData({
-                userInfo: UserInfo
+                userInfo: UserInfo,
+                isReg:wx.getStorageSync("isReg")
             })
         } catch (error) {
             console.log("error::::", error)

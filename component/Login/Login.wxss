@@ -9,8 +9,8 @@
     align-items:center;
 }
 .reg-code{
-    padding:22rpx 34rpx;
-    font-size:28rpx;
+    padding:18rpx 34rpx;
+    font-size:25rpx;
     background:#eee;
 }
 .reg-input input{
@@ -18,4 +18,7 @@
 }
 .reg-bar{
     margin:40rpx 0;
+}
+.reg-touch{
+    background:#ddd;
 }

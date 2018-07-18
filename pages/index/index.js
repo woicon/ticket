@@ -13,6 +13,9 @@ Page({
     getPhoneNumber: function (e) {
         console.log(e)
     },
+    loginSubmit:function(e){
+        console.log(e)
+    },
     //事件处理函数
     bindViewTap: function () {
         wx.navigateTo({

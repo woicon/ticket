@@ -48,7 +48,7 @@ page{
    
 }
 .m-item .ico{
-    font-size:45rpx;
+    font-size:42rpx;
     margin-right:20rpx;
     flex-basis:40rpx;
     

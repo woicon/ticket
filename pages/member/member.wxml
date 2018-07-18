@@ -1,4 +1,4 @@
-<view class='auth' wx:if="{{!userInfo}}">
+<view class='auth' wx:if="{{!isReg}}">
     <view class='auth-txt'>为了更好的体验，需要您授权此app获取昵称，头像等信息！</view>
     <button open-type='getUserInfo' bindgetuserinfo='getUserInfo'>确认授权</button>
 </view>

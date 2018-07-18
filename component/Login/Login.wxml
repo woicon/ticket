@@ -1,14 +1,16 @@
-<view class='reg'>
-    <form>
-        <view class='reg-input'>
-            <input placeholder='用户名'></input>
-        </view>
-        <view class='reg-input'>
-            <input placeholder='验证码'></input>
-            <view class='reg-code'>获取验证码</view>
-        </view>
-        <view class='reg-bar'>
-            <button>登录</button>
-        </view>
-    </form>
+<view class='auth' wx:if="{{!userInfo}}">
+    <view class='auth-txt'>为了更好的体验，需要您授权此app获取昵称，头像等信息！</view>
+    <button open-type='getUserInfo' bindgetuserinfo='getUserInfo'>确认授权</button>
+</view>
+<view class='reg' wx:else>
+    <view class='reg-input'>
+        <input placeholder='输入手机号' type='number' maxlength='11' bindinput='inputValue' id="mobile" name="mobile"></input>
+    </view>
+    <view class='reg-input'>
+        <input placeholder='验证码' bindinput='inputValue' id="code" name="code"></input>
+        <view class='reg-code' bindtap='getCode' hover-class='reg-touch'>获取验证码</view>
+    </view>
+    <view class='reg-bar'>
+        <button bindtap='login'>登录</button>
+    </view>
 </view>

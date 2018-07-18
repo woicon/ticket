@@ -21,7 +21,7 @@
   </view>
   </view>
 </view> -->
-<login></login>
+<login bind:login="loginSubmit"></login>
 <view class='index'>
     <view class='f-grid'>
         <navigator url='/pages/air/air'>  <view class='icon icon-airline'></view>机票查询</navigator>
